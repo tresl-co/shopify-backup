@@ -50,7 +50,7 @@ class Order(Base):
 
 # Create tables
 basedir = os.path.abspath(os.path.dirname(__file__))
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
+SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 session = sessionmaker()
 session.configure(bind=engine)
